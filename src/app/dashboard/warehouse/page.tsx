@@ -5,7 +5,7 @@ export default async function SuperAdminPage() {
 
   return (
     <div>
-      <h1>Hallo Ini Halaman Super Admin</h1>
+      <h1>Hallo Ini Halaman Super Warehouse</h1>
       {JSON.stringify(session)}
     </div>
   );
