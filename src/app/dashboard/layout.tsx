@@ -5,13 +5,15 @@ import { SideNavWrapper } from '@/components/sidenavbar/sidenav-wrapper';
 export default async function DashboardLayout({ children }: { children: React.ReactNode }) {
   const session = await auth();
 
-  if (!session || session.user.role !== 'SUPER_ADMIN') {
+  if (!session) {
     redirect('/forbidden');
   }
 
   return (
     <div className="">
-      <SideNavWrapper role={session.user.role}>
+      <SideNavWrapper
+        role={session.user.role as keyof typeof import('@/config/navigation').navigationConfig}
+      >
         <main className="m-4">{children}</main>
       </SideNavWrapper>
     </div>
