@@ -81,6 +81,7 @@ model Supplier {
   contact     String?
   email       String?
   address     String?
+  createdAt   DateTime  @default(now())
 
   materials   MaterialSupplier[]        
   suppliersPO PurchaseOrder[]

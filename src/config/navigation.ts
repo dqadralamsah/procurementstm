@@ -18,7 +18,7 @@ export const navigationConfig = {
     { label: 'Purchase Request', href: '/dashboard/superadmin/purchase-request', icon: FileCheck },
     { label: 'Purchase Order', href: '/dashboard/superadmin/purchase-order', icon: ShoppingCart },
     { label: 'Supplier', href: '/dashboard/superadmin/supplier', icon: Building2 },
-    { label: 'Material', href: '/dashboard/superadmin/material', icon: Package },
+    { label: 'Material', href: '/dashboard/superadmin/inventory', icon: Package },
 
     // Management
     { label: 'User Management', href: '/dashboard/superadmin/users', icon: Users },
@@ -29,12 +29,12 @@ export const navigationConfig = {
     { label: 'Purchase Request', href: '/dashboard/purchasing/purchase-request', icon: FileCheck },
     { label: 'Purchase Order', href: '/dashboard/purchasing/orders', icon: ShoppingCart },
     { label: 'Supplier', href: '/dashboard/purchasing/supplier', icon: Building2 },
-    { label: 'Material', href: '/dashboard/purchasing/material', icon: Package },
+    { label: 'Material', href: '/dashboard/purchasing/inventory', icon: Package },
   ],
 
   WAREHOUSE: [
     { label: 'Dashboard', href: '/dashboard/warehouse', icon: LayoutDashboard },
     { label: 'Request', href: '/dashboard/superadmin/request', icon: FileText },
-    { label: 'Material', href: '/dashboard/warehouse/material', icon: Package },
+    { label: 'Material', href: '/dashboard/warehouse/inventory', icon: Package },
   ],
 } as const;

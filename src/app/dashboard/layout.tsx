@@ -14,7 +14,7 @@ export default async function DashboardLayout({ children }: { children: React.Re
       <SideNavWrapper
         role={session.user.role as keyof typeof import('@/config/navigation').navigationConfig}
       >
-        <main className="m-4">{children}</main>
+        <main className="mx-4 my-6">{children}</main>
       </SideNavWrapper>
     </div>
   );
