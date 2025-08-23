@@ -36,7 +36,7 @@ export default function SupplierDetailPage() {
     <div className="space-y-6">
       <div className="flex items-center justify-between">
         <Button variant={'outline'}>
-          <Link href={`/dashboard/superadmin/supplier`}>Kembali</Link>
+          <Link href={`/dashboard/superadmin/suppliers`}>Kembali</Link>
         </Button>
       </div>
 

@@ -33,6 +33,12 @@ enum ActivityType {
   OTHER
 }
 
+enum StockStatus {
+  NORMAL
+  LOW
+  OVERSTOCK
+}
+
 enum PurchaseRequestStatus {
   DRAFT
   PENDING
@@ -65,12 +71,6 @@ enum SourceType {
   MANUAL
   USAGE
   OPNAME
-}
-
-enum StockStatus {
-  NORMAL
-  LOW
-  OVERSTOCK
 }
 
 // ========== MASTER DATA ==========
@@ -236,17 +236,27 @@ model ReceivingItem {
   receiving           Receiving           @relation(fields: [receivingId], references: [id], onDelete: Cascade)
   purchaseOrderItemId String
   purchaseOrderItem   PurchaseOrderItem   @relation(fields: [purchaseOrderItemId], references: [id], onDelete: Cascade)
-  quantity            Int
+  quantity            Int                
+  rejectedQuantity    Int?
+  
+  stockMutations      StockMutation[]
 }
+
 
 // ========== STOCK MUTATION ==========
 
 model StockMutation {
-  id          String          @id @default(cuid())
-  materialId  String
-  material    Material        @relation(fields: [materialId], references: [id], onDelete: Cascade)
-  type        MutationType    
-  source      SourceType
-  quantity    Int
-  createdAt   DateTime        @default(now())
+  id              String          @id @default(cuid())
+  materialId      String
+  material        Material        @relation(fields: [materialId], references: [id], onDelete: Cascade)
+  receivingItemId String?
+  receivingItem   ReceivingItem?  @relation(fields: [receivingItemId], references: [id], onDelete: Cascade)
+  type            MutationType
+  source          SourceType
+  quantity        Int
+  note            String?
+  reference       String?    // bisa simpan kode PO/PR/Opname ID
+  createdBy       String?    // userId yang buat mutasi (kalau manual)
+  createdAt       DateTime   @default(now())
 }
+

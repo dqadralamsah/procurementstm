@@ -10,7 +10,7 @@ export default function SupplierCreatePage() {
 
   const handleAdd = async (data: any) => {
     setLoading(true);
-    const res = await fetch('/api/supplier', {
+    const res = await fetch('/api/suppliers', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(data),
@@ -19,7 +19,7 @@ export default function SupplierCreatePage() {
     setLoading(false);
 
     if (res.ok) {
-      router.push('/dashboard/superadmin/supplier');
+      router.push('/dashboard/superadmin/suppliers');
     } else {
       alert('Gagal menambahkan supplier');
     }

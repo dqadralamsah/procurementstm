@@ -14,7 +14,7 @@ export default function SupplierEditPage() {
   useEffect(() => {
     const fetchSupplier = async () => {
       try {
-        const res = await fetch(`/api/supplier/${id}`);
+        const res = await fetch(`/api/suppliers/${id}`);
         if (!res.ok) throw new Error('Failed to fetch supplier');
         const data: Supplier = await res.json();
         setSupplier(data);
@@ -30,14 +30,14 @@ export default function SupplierEditPage() {
   const handleUpdate = async (data: any) => {
     try {
       setLoading(true);
-      const res = await fetch(`/api/supplier/${id}`, {
+      const res = await fetch(`/api/suppliers/${id}`, {
         method: 'PUT',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(data),
       });
 
       if (res.ok) {
-        router.push('/dashboard/superadmin/supplier');
+        router.push('/dashboard/superadmin/suppliers');
       } else {
         alert('Gagal memperbarui supplier');
       }

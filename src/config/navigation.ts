@@ -17,7 +17,7 @@ export const navigationConfig = {
     // Purchasing related
     { label: 'Purchase Request', href: '/dashboard/superadmin/purchase-request', icon: FileCheck },
     { label: 'Purchase Order', href: '/dashboard/superadmin/purchase-order', icon: ShoppingCart },
-    { label: 'Supplier', href: '/dashboard/superadmin/supplier', icon: Building2 },
+    { label: 'Supplier', href: '/dashboard/superadmin/suppliers', icon: Building2 },
     { label: 'Material', href: '/dashboard/superadmin/inventory', icon: Package },
 
     // Management
@@ -28,7 +28,7 @@ export const navigationConfig = {
     { label: 'Dashboard', href: '/dashboard/purchasing', icon: LayoutDashboard },
     { label: 'Purchase Request', href: '/dashboard/purchasing/purchase-request', icon: FileCheck },
     { label: 'Purchase Order', href: '/dashboard/purchasing/orders', icon: ShoppingCart },
-    { label: 'Supplier', href: '/dashboard/purchasing/supplier', icon: Building2 },
+    { label: 'Supplier', href: '/dashboard/purchasing/suppliers', icon: Building2 },
     { label: 'Material', href: '/dashboard/purchasing/inventory', icon: Package },
   ],
 

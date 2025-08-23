@@ -23,7 +23,7 @@ export default function SupplierTable({ role }: Props) {
   useEffect(() => {
     const fetchsupplier = async () => {
       try {
-        const res = await fetch(`/api/supplier`);
+        const res = await fetch(`/api/suppliers`);
         if (!res.ok) throw new Error('Failed to fetch suppliers');
         const data = await res.json();
         setSuppliers(data);
@@ -40,7 +40,7 @@ export default function SupplierTable({ role }: Props) {
   const handleDelete = async (id: string) => {
     if (!confirm('Are you sure to delete this supplier?')) return;
     try {
-      const res = await fetch(`/api/supplier/${id}`, { method: 'DELETE' });
+      const res = await fetch(`/api/suppliers/${id}`, { method: 'DELETE' });
       if (!res.ok) throw new Error('Failed to delete');
       setSuppliers((prev) => prev.filter((s) => s.id !== id));
     } catch (err: any) {

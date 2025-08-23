@@ -19,7 +19,7 @@ export default function SupplierPage() {
     <div className="py-0.5 space-y-8">
       <div className="flex items-center justify-end">
         <Button variant={'ndsbutton'} className="cursor-pointer">
-          <Link href={`/dashboard/${rolePath}/supplier/create`}>+ Create</Link>
+          <Link href={`/dashboard/${rolePath}/suppliers/create`}>+ Create</Link>
         </Button>
       </div>
       <SupplierTable role={rolePath} />
