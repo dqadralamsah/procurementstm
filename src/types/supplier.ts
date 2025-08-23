@@ -1,5 +1,3 @@
-// src/types/supplier.ts
-
 // untuk relasi di supplier
 export type SupplierMaterial = {
   materialId: string;

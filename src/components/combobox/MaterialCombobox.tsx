@@ -13,13 +13,15 @@ import { Popover, PopoverContent, PopoverTrigger } from '@/components/ui/popover
 import { Button } from '@/components/ui/button';
 import { ChevronDown } from 'lucide-react';
 
+type MaterialOption = Pick<Material, 'id' | 'name' | 'unit'>;
+
 type Props = {
-  value: string;
+  value?: string | null;
   onChange: (value: string) => void;
 };
 
 export default function MaterialCombobox({ value, onChange }: Props) {
-  const [materials, setMaterials] = useState<Material[]>([]);
+  const [materials, setMaterials] = useState<MaterialOption[]>([]);
   const [loading, setLoading] = useState(true);
   const [open, setOpen] = useState(false);
 
@@ -29,7 +31,7 @@ export default function MaterialCombobox({ value, onChange }: Props) {
         const res = await fetch('/api/material');
         if (!res.ok) throw new Error('Failed to fetch materials');
         const data = await res.json();
-        setMaterials(data);
+        setMaterials(data); // pastikan API return array langsung
       } catch (error) {
         console.error('Failed to fetch materials:', error);
       } finally {
@@ -45,8 +47,13 @@ export default function MaterialCombobox({ value, onChange }: Props) {
   return (
     <Popover open={open} onOpenChange={setOpen}>
       <PopoverTrigger asChild>
-        <Button variant={'outline'} className="w-full max-w-96 flex items-center justify-between">
-          {selected ? `${selected.name}` : loading ? 'Memuat...' : 'Pilih bahan baku'}
+        <Button
+          variant="outline"
+          className="w-full max-w-96 flex items-center justify-between"
+          disabled={loading}
+          aria-label="Pilih material"
+        >
+          {selected ? selected.name : loading ? 'Memuat...' : 'Pilih bahan baku'}
           <ChevronDown size={16} className="ml-2 opacity-50" />
         </Button>
       </PopoverTrigger>

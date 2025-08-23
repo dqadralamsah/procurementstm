@@ -145,7 +145,13 @@ export default function SupplierForm({ initialData, onSubmit, loading }: Props) 
                   min={0}
                   placeholder="Harga"
                   value={mat.price ?? ''}
-                  onChange={(e) => handleChangeMaterial(idx, 'price', parseFloat(e.target.value))}
+                  onChange={(e) =>
+                    handleChangeMaterial(
+                      idx,
+                      'price',
+                      e.target.value === '' ? undefined : parseFloat(e.target.value)
+                    )
+                  }
                   className="w-full pl-8 px-2 py-1 text-sm border border-gray-300 rounded-lg focus:border-purple-500 outline-none"
                 />
               </div>
@@ -156,7 +162,13 @@ export default function SupplierForm({ initialData, onSubmit, loading }: Props) 
                 min={0}
                 placeholder="Min Order"
                 value={mat.minOrder ?? ''}
-                onChange={(e) => handleChangeMaterial(idx, 'minOrder', parseInt(e.target.value))}
+                onChange={(e) =>
+                  handleChangeMaterial(
+                    idx,
+                    'minOrder',
+                    e.target.value === '' ? undefined : parseInt(e.target.value)
+                  )
+                }
                 className="w-28 px-2 py-1 text-sm border border-gray-300 rounded-lg focus:border-purple-500 outline-none"
               />
 
